@@ -22,3 +22,11 @@ stored in `.git/HEAD`, it is literally a symlink, and acts as a pointer to a
 branch. If you want to find out what a symbolic-ref like HEAD is pointing to run
 `git symbolic-ref <name>`,  you can also change what it is pointing to: `git
 symbolic-ref <name> <ref>` e.g. `git symbolic-ref HEAD refs/heads/master`
+
+## Rebasing: checkout --ours, checkout --theirs
+(2016/03/16)
+When rebasing, `--ours` refers to the branch you are rebasing onto, rather than
+the branch you've got checked out, and `--theirs` refers to the branch you
+initially had checked out. So if was on branch `feature/x` and I rebase
+onto`develop`, then `--ours` refers to `develop` mid rebase and `--theirs` is
+`feature/x` bizarrely!
