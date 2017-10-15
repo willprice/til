@@ -16,3 +16,8 @@ Host dev-mongodb-tunnel
     HostName dev
     LocalForward 1234 127.0.0.1:27017
 ```
+
+## Exiting unresponsive session
+(2017/10/15)
+
+Type `<Return> ~ .` in quick succession to exit an unresponsive session
