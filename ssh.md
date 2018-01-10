@@ -21,3 +21,22 @@ Host dev-mongodb-tunnel
 (2017/10/15)
 
 Type `<Return> ~ .` in quick succession to exit an unresponsive session
+
+## SSH Config multiple matching entry resolution
+(2018/01/10)
+
+If you have multiple matching configurations for a host in `.ssh/config` then
+the first value obtained will be used, e.g.
+
+```
+Match host uni-desktop !exec "has-mac-addr 192.168.1.1 2c:56:dc:d2:90:37"
+    ProxyJump proxy-jump-box
+    HostName my-remote-machine
+
+Host uni-desktop
+    User my-user
+    HostName 192.168.1.246
+```
+
+The `Match` clause has to be above the `Host` clause otherwise `uni-desktop`
+will always have the HostName `192.168.1.246`
